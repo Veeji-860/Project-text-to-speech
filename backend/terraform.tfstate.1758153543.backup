@@ -1,0 +1,392 @@
+{
+  "version": 4,
+  "terraform_version": "1.13.2",
+  "serial": 133,
+  "lineage": "cebf25de-55db-ab0c-57b8-08ec959ba8b5",
+  "outputs": {
+    "rest_api_endpoint": {
+      "value": "https://0f4ybwhfl6.execute-api.us-east-1.amazonaws.com/prod/speech",
+      "type": "string"
+    },
+    "website_endpoint": {
+      "value": "static-website-bucket10-dcaa17e7.s3-website-us-east-1.amazonaws.com",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_integration",
+      "name": "options_integration",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "cache_key_parameters": null,
+            "cache_namespace": "y8ap6d",
+            "connection_id": "",
+            "connection_type": "INTERNET",
+            "content_handling": "",
+            "credentials": "",
+            "http_method": "OPTIONS",
+            "id": "agi-ellzsw0bil-y8ap6d-OPTIONS",
+            "integration_http_method": "",
+            "passthrough_behavior": "WHEN_NO_MATCH",
+            "region": "us-east-1",
+            "request_parameters": null,
+            "request_templates": {
+              "application/json": "{\"statusCode\": 200}"
+            },
+            "resource_id": "y8ap6d",
+            "rest_api_id": "ellzsw0bil",
+            "timeout_milliseconds": 29000,
+            "tls_config": [],
+            "type": "MOCK",
+            "uri": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_method.options",
+            "aws_api_gateway_resource.speech",
+            "aws_api_gateway_rest_api.text_to_speech_api"
+          ],
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_integration_response",
+      "name": "options_integration_response",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "content_handling": "",
+            "http_method": "OPTIONS",
+            "id": "agir-ellzsw0bil-y8ap6d-OPTIONS-200",
+            "region": "us-east-1",
+            "resource_id": "y8ap6d",
+            "response_parameters": {
+              "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+              "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+              "method.response.header.Access-Control-Allow-Origin": "'*'"
+            },
+            "response_templates": null,
+            "rest_api_id": "ellzsw0bil",
+            "selection_pattern": "",
+            "status_code": "200"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_method.options",
+            "aws_api_gateway_method_response.options_response",
+            "aws_api_gateway_resource.speech",
+            "aws_api_gateway_rest_api.text_to_speech_api"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method",
+      "name": "options",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_required": false,
+            "authorization": "NONE",
+            "authorization_scopes": null,
+            "authorizer_id": null,
+            "http_method": "OPTIONS",
+            "id": "agm-ellzsw0bil-y8ap6d-OPTIONS",
+            "operation_name": null,
+            "region": "us-east-1",
+            "request_models": null,
+            "request_parameters": null,
+            "request_validator_id": null,
+            "resource_id": "y8ap6d",
+            "rest_api_id": "ellzsw0bil"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_resource.speech",
+            "aws_api_gateway_rest_api.text_to_speech_api"
+          ],
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method",
+      "name": "post_speech",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_required": false,
+            "authorization": "NONE",
+            "authorization_scopes": null,
+            "authorizer_id": null,
+            "http_method": "POST",
+            "id": "agm-ellzsw0bil-y8ap6d-POST",
+            "operation_name": null,
+            "region": "us-east-1",
+            "request_models": null,
+            "request_parameters": null,
+            "request_validator_id": null,
+            "resource_id": "y8ap6d",
+            "rest_api_id": "ellzsw0bil"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_resource.speech",
+            "aws_api_gateway_rest_api.text_to_speech_api"
+          ],
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method_response",
+      "name": "options_response",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "http_method": "OPTIONS",
+            "id": "agmr-ellzsw0bil-y8ap6d-OPTIONS-200",
+            "region": "us-east-1",
+            "resource_id": "y8ap6d",
+            "response_models": {
+              "application/json": "Empty"
+            },
+            "response_parameters": {
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
+            "rest_api_id": "ellzsw0bil",
+            "status_code": "200"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_method.options",
+            "aws_api_gateway_resource.speech",
+            "aws_api_gateway_rest_api.text_to_speech_api"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_method_response",
+      "name": "post_response",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "http_method": "POST",
+            "id": "agmr-ellzsw0bil-y8ap6d-POST-200",
+            "region": "us-east-1",
+            "resource_id": "y8ap6d",
+            "response_models": null,
+            "response_parameters": {
+              "method.response.header.Access-Control-Allow-Origin": true
+            },
+            "rest_api_id": "ellzsw0bil",
+            "status_code": "200"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_method.post_speech",
+            "aws_api_gateway_resource.speech",
+            "aws_api_gateway_rest_api.text_to_speech_api"
+          ],
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_resource",
+      "name": "speech",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "y8ap6d",
+            "parent_id": "3ew3y69jo3",
+            "path": "/speech",
+            "path_part": "speech",
+            "region": "us-east-1",
+            "rest_api_id": "ellzsw0bil"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_api_gateway_rest_api.text_to_speech_api"
+          ],
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_api_gateway_rest_api",
+      "name": "text_to_speech_api",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_key_source": "HEADER",
+            "arn": "arn:aws:apigateway:us-east-1::/restapis/ellzsw0bil",
+            "binary_media_types": [],
+            "body": null,
+            "created_date": "2025-09-17T23:56:15Z",
+            "description": "REST API for Text-to-Speech Lambda",
+            "disable_execute_api_endpoint": false,
+            "endpoint_configuration": [
+              {
+                "ip_address_type": "ipv4",
+                "types": [
+                  "EDGE"
+                ],
+                "vpc_endpoint_ids": []
+              }
+            ],
+            "execution_arn": "arn:aws:execute-api:us-east-1:562280272755:ellzsw0bil",
+            "fail_on_warnings": null,
+            "id": "ellzsw0bil",
+            "minimum_compression_size": "",
+            "name": "text-to-speech-api",
+            "parameters": null,
+            "policy": "",
+            "put_rest_api_mode": null,
+            "region": "us-east-1",
+            "root_resource_id": "3ew3y69jo3",
+            "tags": null,
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "lambda_exec_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::562280272755:role/text-to-speech-execution-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2025-09-17T23:56:15Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "text-to-speech-execution-role",
+            "inline_policy": [],
+            "managed_policy_arns": [],
+            "max_session_duration": 3600,
+            "name": "text-to-speech-execution-role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": null,
+            "tags_all": {},
+            "unique_id": "AROAYF2UECNZ2IDNSJXL7"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "562280272755",
+            "name": "text-to-speech-execution-role"
+          },
+          "private": "bnVsbA==",
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "lambda_basic_exec",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "text-to-speech-execution-role/arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "role": "text-to-speech-execution-role"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "identity": {
+            "account_id": "562280272755",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            "role": "text-to-speech-execution-role"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_exec_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_id",
+      "name": "bucket_suffix",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "b64_std": "3KoX5w==",
+            "b64_url": "3KoX5w",
+            "byte_length": 4,
+            "dec": "3702134759",
+            "hex": "dcaa17e7",
+            "id": "3KoX5w",
+            "keepers": null,
+            "prefix": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "create_before_destroy": true
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
